@@ -31,4 +31,3 @@ Students should:
 - `includes/`
 - `sql/`
 - root PHP pages
-# CIS-344-Final-Project

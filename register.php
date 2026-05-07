@@ -11,8 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $userType = $_POST['userType'] ?? '';
 
     if ($userName && $contactInfo && $password && $userType) {
-        //TODO: Implement password hashing
-        $passwordHash = "";
+        // Securely hash the password
+        $passwordHash = password_hash($password, PASSWORD_DEFAULT);
         try {
             $db->addUser($userName, $contactInfo, $passwordHash, $userType);
             $message = 'Registration successful. You may now log in.';

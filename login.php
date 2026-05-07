@@ -1,4 +1,6 @@
 <?php
+$message = '';
+require_once 'config/config.php'; // Ensures session_start and config
 require_once 'classes/RealEstateDatabase.php';
 $message = '';
 
@@ -8,8 +10,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'] ?? '';
 
     $user = $db->getUserByUsername($userName);
-    //TODO: Verify Password by comparing it with hashed password 
-    if ($user && $password === $user['passwordHash']) {
+    // Securely verify password
+    if ($user && password_verify($password, $user['passwordHash'])) {
+        unset($user['passwordHash']); // Don't store hash in session
         $_SESSION['user'] = $user;
         header('Location: dashboard.php');
         exit;

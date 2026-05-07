@@ -17,6 +17,7 @@ This is a simple PHP + MySQL web app for a Real Estate Agency Portal.
 - `includes/` - shared PHP includes (header/footer, session checks, etc.)
 - `sql/` - database scripts (tables, sample data, procedures/views/triggers)
 - `assests/` - styles.cc file
+- `report/` - CIS_344_Final_Project_Report PDF File
 ## Setup
 1. Start **XAMPP** (Apache + MySQL).
 2. Open **phpMyAdmin** and create the database:
